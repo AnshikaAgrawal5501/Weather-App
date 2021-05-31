@@ -19,19 +19,28 @@ form {
     font-family: 'Asap', sans-serif;
 }
 
-.btn {
-    color: #9fa4a8;
+.home-submit {
     position: absolute;
     top: 0;
     right: 0;
+    color: #9fa4a8;
 }
 
-.btn:hover {
+.home-submit:hover {
     color: #53616e;
 }
 
-.btn:focus {
+.home-submit:focus {
     box-shadow: none !important;
+}
+
+.error-submit {
+    background-color: black;
+    color: whitesmoke !important;
+}
+
+.error-submit:focus {
+    box-shadow: 0 0 0 .2rem rgba(0, 0, 0, 0.5) !important;
 }
 
 .description {

@@ -1,0 +1,55 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title and Icon -->
+
+    <title>Weather App : Error</title>
+    <link rel="shortcut icon" href="images/icon.png">
+
+    <!-- StyleSheets -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Bootstrap scripts -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Fontawesome icons -->
+
+    <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" data-auto-replace-svg="nest"></script>
+
+    <style>
+        h1 {
+            color: black;
+        }
+        
+        @media(max-width: 525px) {
+            h1 {
+                font-size: 40px !important;
+            }
+        }
+    </style>
+
+</head>
+
+<body class="text-center d-flex align-items-center justify-content-center" style="height: 100vh;">
+
+    <div class="container">
+        <img class="mb-4" src="images/er.png" alt="" width="200px">
+        <h1>Error 401 | Page not Found</h1>
+
+        <form action="/failure" method="post">
+            <button type="submit" class="btn btn-lg error-submit">Try Again</button>
+        </form>
+    </div>
+</body>
+
+</html>

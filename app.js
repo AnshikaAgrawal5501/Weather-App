@@ -9,7 +9,7 @@ const port = 3000;
 
 app.set('view engine', 'ejs');
 app.use(bodyParser.urlencoded({ extended: true }));
-app.use(express.static("public"));
+app.use(express.static('public'));
 
 let weather = {
     city: 'City Name',
@@ -25,6 +25,10 @@ app.get('/', function(req, res) {
     res.render('home', weather);
 });
 
+app.post('/failure', function(req, res) {
+    res.redirect('/');
+});
+
 app.post('/', function(req, res) {
 
     const query = req.body.cityName;
@@ -37,29 +41,35 @@ app.post('/', function(req, res) {
 
         response.on("data", function(data) {
 
-            const weatherData = JSON.parse(data);
-            // console.log(weatherData)
+            if (response.statusCode !== 200) {
+                res.render('failure');
 
-            const temp = weatherData.main.temp;
-            const pressure = weatherData.main.pressure;
-            const humidity = weatherData.main.humidity;
-            const wind = weatherData.wind.speed;
-            const weatherDescripstion = weatherData.weather[0].description;
+            } else {
 
-            const weatherIcon = weatherData.weather[0].icon;
-            const iconUrl = `http://openweathermap.org/img/wn/${weatherIcon}@2x.png`
+                const weatherData = JSON.parse(data);
+                console.log(weatherData)
 
-            weather = {
-                city: query,
-                temp: temp,
-                pressure: pressure,
-                humidity: humidity,
-                wind: wind,
-                weatherD: weatherDescripstion,
-                icon: iconUrl
-            };
+                const temp = weatherData.main.temp;
+                const pressure = weatherData.main.pressure;
+                const humidity = weatherData.main.humidity;
+                const wind = weatherData.wind.speed;
+                const weatherDescripstion = weatherData.weather[0].description;
 
-            res.redirect('/');
+                const weatherIcon = weatherData.weather[0].icon;
+                const iconUrl = `http://openweathermap.org/img/wn/${weatherIcon}@2x.png`
+
+                weather = {
+                    city: query,
+                    temp: temp,
+                    pressure: pressure,
+                    humidity: humidity,
+                    wind: wind,
+                    weatherD: weatherDescripstion,
+                    icon: iconUrl
+                };
+
+                res.redirect('/');
+            }
         });
     });
 });
