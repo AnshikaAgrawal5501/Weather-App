@@ -18,7 +18,7 @@ let weather = {
     humidity: '',
     wind: '',
     weatherD: 'Description',
-    icon: ''
+    icon: '',
 };
 
 app.get('/', function(req, res) {
