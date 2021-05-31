@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Title and Icon -->
+
+    <title>Weather App</title>
+    <link rel="shortcut icon" href="images/icon.png">
+
+    <!-- StyleSheets -->
+
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/styles.css">
+
+    <!-- Bootstrap scripts -->
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+
+    <!-- Fontawesome icons -->
+
+    <script src="https://use.fontawesome.com/releases/v5.15.3/js/all.js" data-auto-replace-svg="nest"></script>
+
+</head>
+
+<body class="d-flex align-items-center">
+
+    <div class="container d-flex justify-content-center">
+
+        <div class="card">
+
+            <div class="card-body">
+
+                <form action="/" method="post">
+
+                    <!-- <div class="form-row"> -->
+                    <div class="form-group">
+                        <input type="text" class="form-control" name="cityName" placeholder="Enter City Name">
+                    </div>
+                    <!-- <div class="col-3 form-group"> -->
+                    <button type="submit" class="btn"><i class="fas fa-search"></i></button>
+                    <!-- </div> -->
+                    <!-- </div> -->
+                </form>
+
+                <div class="description">
+                    <h1 class="text-center">
+                        <%= city %>
+                    </h1>
+
+                    <hr>
+
+                    <div class="row">
+
+                        <div class="col-sm-7">
+                            Temperature :
+                            <%= temp %> &#186;C
+                                <br>Pressure :
+                                <%= pressure %> mb
+                                    <br>Humidity :
+                                    <%= humidity %> %
+                                        <br>Wind-speed :
+                                        <%= wind %> m/sec
+                                            <br>
+                                            <%= weatherD %>
+                        </div>
+                        <div class="col-sm-5 text-center">
+                            <img src="<%= icon %>" alt="" class="img-fluid">
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+
+
+</body>
+
+</html>
