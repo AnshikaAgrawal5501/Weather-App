@@ -42,7 +42,7 @@ app.post('/', function(req, res) {
         response.on("data", function(data) {
 
             if (response.statusCode !== 200) {
-                res.render('failure');
+                res.render('failure', { code: response.statusCode });
 
             } else {
 

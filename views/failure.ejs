@@ -44,7 +44,8 @@
 
     <div class="container">
         <img class="mb-4" src="images/error.png" alt="" width="200px">
-        <h1>Error 401 | Page not Found</h1>
+        <h1>Error
+            <%=code%> | Page not Found</h1>
 
         <form action="/failure" method="post">
             <button type="submit" class="btn btn-lg error-submit">Try Again</button>
