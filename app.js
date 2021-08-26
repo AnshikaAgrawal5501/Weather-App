@@ -31,7 +31,9 @@ app.post('/failure', function(req, res) {
 
 app.post('/', function(req, res) {
 
-    const query = req.body.cityName;
+    const city = req.body.cityName;
+
+    const query = encodeURIComponent(city);
     const apiKey = process.env.API_KEY;
     const units = "metric";
 
@@ -59,7 +61,7 @@ app.post('/', function(req, res) {
                 const iconUrl = `http://openweathermap.org/img/wn/${weatherIcon}@2x.png`
 
                 weather = {
-                    city: query,
+                    city: city,
                     temp: temp,
                     pressure: pressure,
                     humidity: humidity,
